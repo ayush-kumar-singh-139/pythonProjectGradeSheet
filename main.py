@@ -8,6 +8,9 @@ Display Graph 1
 Quit 0
 """
 
+# Change if you want to import different data
+url = 'https://raw.githubusercontent.com/ayush-kumar-singh-139/pythonProjectGradeSheet/refs/heads/main/data.csv'
+data = pd.read_csv(url)
 # mapping between grades and points
 map = {
     "A*":10,
@@ -32,12 +35,8 @@ while True:
     if branch==0:
         break
     elif branch == 1:
-        url = 'data.csv'
-
-        data = pd.read_csv(url)
-
         #Calculate CPI
-        ##first we need to convert grades into points
+        ## First we need to convert grades into points
 
         new_data = data.copy()
         new_data['GRADE'] = new_data['GRADE'].apply(grade_to_points)
